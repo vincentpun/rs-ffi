@@ -36,6 +36,7 @@ pub unsafe extern "C" fn rect_area(rect: *const Rect) -> f32 {
 pub unsafe extern "C" fn rect_type(rect: *const Rect) -> *mut c_char {
     let rect = &*rect;
 
+    // This actually is a memory leak.
     match rect.rect_type {
         RectType::Normal => CString::new("Normal rect").unwrap().into_raw(),
         RectType::Rounded(radius) => CString::new(format!("Rounded with radius {radius}"))
