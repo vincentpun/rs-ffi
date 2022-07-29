@@ -1,0 +1,5 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "0_sum_c_calling_rust/Cargo.toml"
+    ]
+}
