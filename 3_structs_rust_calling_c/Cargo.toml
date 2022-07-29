@@ -1,0 +1,15 @@
+[package]
+name = "structs_rust_calling_c"
+version = "0.1.0"
+edition = "2021"
+default-run = "structs_rust_calling_c"
+build = "rs-src/build.rs"
+links = "structs_rust_calling_c"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "structs_rust_calling_c"
+path = "rs-src/main.rs"
+
+[dependencies]
