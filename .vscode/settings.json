@@ -1,6 +1,7 @@
 {
     "rust-analyzer.linkedProjects": [
         "0_sum_c_calling_rust/Cargo.toml",
-        "1_sum_rust_calling_c/Cargo.toml"
+        "1_sum_rust_calling_c/Cargo.toml",
+        "2_structs_c_calling_rust/Cargo.toml"
     ]
 }
