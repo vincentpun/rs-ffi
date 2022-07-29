@@ -7,6 +7,3 @@ build-all: build-rust
 
 build-rust:
 	cargo build --release
-
-run: build-all
-	LD_LIBRARY_PATH=$(THIS_DIR)/../target/release ./main
