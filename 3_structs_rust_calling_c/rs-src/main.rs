@@ -1,4 +1,4 @@
-use std::ffi::CString;
+use std::ffi::{CStr, CString};
 use std::os::raw::{c_char, c_float};
 
 #[repr(C)]
@@ -27,7 +27,7 @@ extern "C" {
         y: c_float,
         width: c_float,
         height: c_float,
-        description: CString,
+        description: *const c_char,
     ) -> *mut Rect;
     fn free_rect(rect: *mut Rect);
 }
@@ -36,8 +36,9 @@ fn main() {
     // This must be unsafe because there's no way for Rust to know anything. You are responsible for
     // ensuring safety.
     let description = CString::new("My rectangle!").unwrap();
+
     unsafe {
-        let rect = new_rect(10.0, 10.0, 50.0, 100.0, description);
+        let rect = new_rect(10.0, 10.0, 50.0, 100.0, description.as_ptr());
         let area = rect_area(rect);
 
         println!("Area = {area}");
@@ -45,14 +46,11 @@ fn main() {
         println!("y = {}", (*rect).origin.y);
         println!(
             "Description = {}",
-            CString::from_raw((*rect).description as *mut c_char)
+            CStr::from_ptr((*rect).description as *mut c_char)
                 .to_str()
                 .unwrap()
         );
 
         free_rect(rect);
-
-        // THIS IS TOTALLY BAD! Which is why we're in unsafe land.
-        println!("{}", (*rect).origin.x);
     }
 }
