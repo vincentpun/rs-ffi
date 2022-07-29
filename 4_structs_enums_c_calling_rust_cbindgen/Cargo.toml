@@ -1,0 +1,17 @@
+[package]
+name = "structs_enums_c_calling_rust"
+version = "0.1.0"
+edition = "2021"
+build = "rs-src/build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+path = "rs-src/lib.rs"
+
+[build-dependencies]
+cbindgen = "0.24"
+
+[dependencies]
+cbindgen = "0.24"

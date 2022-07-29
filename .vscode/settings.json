@@ -3,6 +3,7 @@
         "0_sum_c_calling_rust/Cargo.toml",
         "1_sum_rust_calling_c/Cargo.toml",
         "2_structs_c_calling_rust/Cargo.toml",
-        "3_structs_rust_calling_c/Cargo.toml"
+        "3_structs_rust_calling_c/Cargo.toml",
+        "4_structs_enums_c_calling_rust_cbindgen/Cargo.toml",
     ]
 }
