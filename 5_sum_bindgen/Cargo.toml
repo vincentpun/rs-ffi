@@ -1,0 +1,16 @@
+[package]
+name = "sum_bindgen"
+version = "0.1.0"
+edition = "2021"
+default-run = "sum_bindgen"
+build = "rs-src/build.rs"
+links = "sum_bindgen"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "sum_bindgen"
+path = "rs-src/main.rs"
+
+[build-dependencies]
+bindgen = "0.53.1"
